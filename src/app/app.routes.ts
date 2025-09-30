@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'shorts', component: ShortsComponent },
   { path: 'cart', component: CartComponent },
-  { path: '**', redirectTo: '' } // fallback for invalid URLs
+  { path: '**', redirectTo: '' }
 ];

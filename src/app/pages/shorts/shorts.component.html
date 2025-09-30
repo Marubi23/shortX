@@ -1,34 +1,18 @@
-<div class="container py-5">
-  <h1 class="text-center fw-bold mb-4" style="font-family: 'Playfair Display', serif; color: #222;">
-    Explore ShortsX Collection
-  </h1>
+<div class="shorts-grid">
+  <div class="short-card" *ngFor="let short of shorts">
+    <img [src]="short.image" [alt]="short.name" class="short-img">
+    <div class="short-info text-center mt-2">
+      <h5 class="fw-semibold mb-1">{{ short.name }}</h5>
+      <p class="text-muted mb-1">{{ short.price | currency:'KES':'symbol':'1.0-0' }}</p>
 
-  <div class="shorts-grid">
-    <div class="short-card" *ngFor="let short of shorts" (click)="openModal(short)">
-      <img [src]="short.image" [alt]="short.name" class="short-img">
-      <div class="short-info">
-        <h5 class="fw-semibold mb-1">{{ short.name }}</h5>
-        <p class="text-muted mb-0">{{ short.price | currency:'KES':'symbol':'1.0-0' }}</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal for zoom/360 view -->
-<div class="modal" [class.show]="selectedShort" (click)="closeModal()" tabindex="-1">
-  <div class="modal-dialog" (click)="$event.stopPropagation()">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{{ selectedShort?.name }}</h5>
-        <button type="button" class="btn-close" (click)="closeModal()"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Foundation for 360 view: currently single image -->
-        <div class="viewer-container">
-          <img [src]="selectedShort?.image" [alt]="selectedShort?.name" class="img-fluid">
-          <!-- Later: replace above with 360° viewer component/library -->
-        </div>
-      </div>
+      <!-- Add to Cart Button -->
+      <button
+        class="btn btn-sm"
+        [ngClass]="{'btn-success': isInCart(short), 'btn-primary': !isInCart(short)}"
+        (click)="addToCart(short)"
+        [disabled]="isInCart(short)">
+        {{ isInCart(short) ? 'Added' : 'Add to Cart' }}
+      </button>
     </div>
   </div>
 </div>

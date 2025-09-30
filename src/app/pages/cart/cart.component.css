@@ -1,0 +1,59 @@
+.cart-thumb-sm {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Cart item container */
+.cart-item {
+  display: flex;
+  flex-wrap: wrap;       /* allows wrapping on small screens */
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Info section (name + price) */
+.cart-item h6 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.cart-item p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+/* Input and buttons section */
+.cart-item div:last-child {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;       /* ensures buttons wrap on small screens */
+}
+
+/* Modal responsiveness */
+.modal-dialog {
+  max-width: 90vw;       /* allow modal to shrink on smaller screens */
+}
+
+.modal-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Optional: adjust font size on very small screens */
+@media (max-width: 576px) {
+  .cart-item h6 {
+    font-size: 0.8rem;
+  }
+  .cart-item p {
+    font-size: 0.7rem;
+  }
+  .cart-thumb-sm {
+    width: 40px;
+    height: 40px;
+  }
+}

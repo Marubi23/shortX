@@ -1,5 +1,45 @@
-<div class="container py-5 text-center">
-  <h2 class="fw-bold">Your Cart</h2>
-  <p class="text-muted">No items yet. Start shopping!</p>
-  <a routerLink="/shorts" class="btn btn-outline-dark mt-3">Browse Shorts</a>
+<div class="cart mt-5 p-3 border rounded">
+  <h4>Shopping Cart</h4>
+
+  <div *ngIf="cart.length === 0">Your cart is empty.</div>
+
+  <div *ngFor="let item of cart" class="cart-item d-flex justify-content-between align-items-center mb-2">
+    <!-- Small thumbnail -->
+    <div class="d-flex align-items-center gap-2">
+      <img [src]="item.image" [alt]="item.name" class="cart-thumb-sm">
+      <div>
+        <h6>{{ item.name }}</h6>
+        <p>{{ (item.price * (item.quantity || 1)) | currency:'KES':'symbol':'1.0-0' }}</p>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center gap-2">
+      <input type="number" min="1" [value]="item.quantity" (change)="updateQty(item, $any($event.target).value)">
+      <button class="btn btn-sm btn-info" (click)="previewItem(item)">Preview</button>
+      <button class="btn btn-sm btn-danger" (click)="removeItem(item)">Remove</button>
+    </div>
+  </div>
+
+  <hr *ngIf="cart.length > 0">
+  <div *ngIf="cart.length > 0" class="d-flex justify-content-between fw-bold">
+    <span>Total:</span>
+    <span>{{ getCartTotal() | currency:'KES':'symbol':'1.0-0' }}</span>
+  </div>
+</div>
+
+<!-- Modal for Preview -->
+<div class="modal" [class.show]="previewedItem" (click)="closePreview()" tabindex="-1">
+  <div class="modal-dialog modal-lg" (click)="$event.stopPropagation()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ previewedItem?.name }}</h5>
+        <button type="button" class="btn-close" (click)="closePreview()"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img [src]="previewedItem?.image" class="img-fluid" alt="{{ previewedItem?.name }}">
+        <p class="mt-2">Price: {{ previewedItem?.price | currency:'KES':'symbol':'1.0-0' }}</p>
+        <p>Quantity: {{ previewedItem?.quantity }}</p>
+      </div>
+    </div>
+  </div>
 </div>
