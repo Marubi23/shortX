@@ -1,0 +1,60 @@
+/* Grid Layout */
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+/* Card styling */
+.short-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.short-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Image styling */
+.short-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* Info section */
+.short-info {
+  padding: 0.5rem 0.75rem 0.75rem;
+  text-align: center;
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.7);
+  align-items: center;
+  justify-content: center;
+}
+.modal.show {
+  display: flex;
+}
+.modal-dialog {
+  max-width: 600px;
+  width: 90%;
+}
+.viewer-container img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
