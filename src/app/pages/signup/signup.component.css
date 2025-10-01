@@ -1,0 +1,138 @@
+/* Background with rhombus effect */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1c1c1c, #2c2c2c);
+  position: relative;
+  overflow: hidden;
+  padding: 20px; /* add padding for mobile */
+}
+
+.auth-container::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  transform: rotate(45deg);
+  top: -100px;
+  left: -100px;
+}
+
+.auth-container::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  transform: rotate(45deg);
+  bottom: -80px;
+  right: -80px;
+}
+
+/* Logo */
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* Auth Card */
+.auth-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-title {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.auth-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border: none;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.auth-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Switch Links */
+.switch-link {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.switch-link a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ff416c;
+}
+
+/* --------------------- */
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .auth-container::before,
+  .auth-container::after {
+    width: 150px;
+    height: 150px;
+  }
+
+  .logo {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .auth-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+
+  .auth-btn {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .switch-link {
+    font-size: 0.85rem;
+  }
+}

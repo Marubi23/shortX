@@ -1,0 +1,147 @@
+/* Wrapper */
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+  position: relative;
+  overflow: hidden;
+  padding: 20px; /* for mobile spacing */
+}
+
+/* Logo */
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff416c;
+  margin-bottom: 20px;
+  text-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+/* Card */
+.auth-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+  z-index: 10;
+  position: relative;
+}
+
+/* Inputs */
+.form-control {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  border-color: #ff416c;
+  box-shadow: 0px 0px 8px rgba(255,65,108,0.3);
+  outline: none;
+}
+
+/* Button */
+.btn-auth {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-auth:hover {
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  transform: translateY(-2px);
+}
+
+/* Links */
+a {
+  color: #ff416c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Rhombus / Diamond shapes */
+.rhombus {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 65, 108, 0.15);
+  transform: rotate(45deg);
+  top: 20%;
+  left: -60px;
+  border-radius: 12px;
+}
+
+.rhombus-2 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  right: -75px;
+  background: rgba(255, 75, 43, 0.15);
+}
+
+.rhombus-3 {
+  width: 100px;
+  height: 100px;
+  top: 80%;
+  left: 20%;
+  background: rgba(255, 65, 108, 0.1);
+}
+
+/* --------------------- */
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .form-control {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .btn-auth {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .rhombus {
+    width: 60px;
+    height: 60px;
+    left: -30px;
+  }
+
+  .rhombus-2 {
+    width: 75px;
+    height: 75px;
+    right: -37px;
+  }
+
+  .rhombus-3 {
+    width: 50px;
+    height: 50px;
+    left: 10%;
+  }
+}
