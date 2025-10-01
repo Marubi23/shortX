@@ -1,45 +1,55 @@
-<div class="cart mt-5 p-3 border rounded">
-  <h4>Shopping Cart</h4>
+<div class="container py-5">
+  <h2 class="mb-4">Your Cart 🛒</h2>
 
-  <div *ngIf="cart.length === 0">Your cart is empty.</div>
-
-  <div *ngFor="let item of cart" class="cart-item d-flex justify-content-between align-items-center mb-2">
-    <!-- Small thumbnail -->
-    <div class="d-flex align-items-center gap-2">
-      <img [src]="item.image" [alt]="item.name" class="cart-thumb-sm">
-      <div>
-        <h6>{{ item.name }}</h6>
-        <p>{{ (item.price * (item.quantity || 1)) | currency:'KES':'symbol':'1.0-0' }}</p>
-      </div>
-    </div>
-
-    <div class="d-flex align-items-center gap-2">
-      <input type="number" min="1" [value]="item.quantity" (change)="updateQty(item, $any($event.target).value)">
-      <button class="btn btn-sm btn-info" (click)="previewItem(item)">Preview</button>
-      <button class="btn btn-sm btn-danger" (click)="removeItem(item)">Remove</button>
-    </div>
+  <div *ngIf="cartItems.length === 0" class="alert alert-info">
+    Your cart is empty.
   </div>
 
-  <hr *ngIf="cart.length > 0">
-  <div *ngIf="cart.length > 0" class="d-flex justify-content-between fw-bold">
-    <span>Total:</span>
-    <span>{{ getCartTotal() | currency:'KES':'symbol':'1.0-0' }}</span>
-  </div>
-</div>
+  <div *ngIf="cartItems.length > 0" class="row">
 
-<!-- Modal for Preview -->
-<div class="modal" [class.show]="previewedItem" (click)="closePreview()" tabindex="-1">
-  <div class="modal-dialog modal-lg" (click)="$event.stopPropagation()">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{{ previewedItem?.name }}</h5>
-        <button type="button" class="btn-close" (click)="closePreview()"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img [src]="previewedItem?.image" class="img-fluid" alt="{{ previewedItem?.name }}">
-        <p class="mt-2">Price: {{ previewedItem?.price | currency:'KES':'symbol':'1.0-0' }}</p>
-        <p>Quantity: {{ previewedItem?.quantity }}</p>
+    <!-- Left: Cart Items -->
+    <div class="col-lg-8">
+      <div *ngFor="let item of cartItems" class="card mb-3 shadow-sm">
+        <div class="row g-0 align-items-center">
+          <!-- Image -->
+          <div class="col-md-3 text-center">
+            <img [src]="item.image" class="img-fluid rounded" style="height: 100px; object-fit: cover;" [alt]="item.name">
+          </div>
+          <!-- Name & Price -->
+          <div class="col-md-5">
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text text-success fw-bold">Ksh{{ item.price }}</p>
+            </div>
+          </div>
+          <!-- Quantity & Remove -->
+          <div class="col-md-4 text-center">
+            <label class="form-label">Quantity</label>
+            <input type="number" class="form-control mb-2" min="1" [value]="item.quantity"
+                   (change)="updateQty(item, $any($event.target).value)" />
+            <button class="btn btn-danger w-100" (click)="removeItem(item)">Remove</button>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Right: Summary / Checkout -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm p-3">
+        <h4 class="mb-3">Order Summary</h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of cartItems">
+            {{ item.name }} (x{{ item.quantity }})
+            <span>Ksh.{{ item.price * (item.quantity || 1) }}</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+            Total
+            <span>Ksh.{{ getTotal() }}</span>
+          </li>
+        </ul>
+        <button class="btn btn-success w-100 btn-lg">Proceed to Checkout</button>
+      </div>
+    </div>
+
   </div>
 </div>

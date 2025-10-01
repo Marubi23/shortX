@@ -1,56 +1,41 @@
-.shorts-grid {
+.shorts-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
 .short-card {
-  border-radius: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  position: relative;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .short-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-.short-img-container {
-  position: relative;
-}
-
-.short-img {
+.short-image {
   width: 100%;
-  display: block;
-  border-bottom: 1px solid #eee;
+  height: 180px;
+  object-fit: cover;
 }
 
-.short-actions {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  gap: 4px;
-  opacity: 0;
-  transition: opacity 0.3s;
+.short-info {
+  padding: 10px;
 }
 
-.short-card:hover .short-actions {
-  opacity: 1;
+.price {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.modal.show {
-  display: block;
-  background: rgba(0,0,0,0.6);
-}
-
-.viewer-container {
-  position: relative;
-}
-
-.modal-actions button i {
-  margin-right: 5px;
+button.added-btn {
+  background-color: orange !important;
+  border-color: orange !important;
+  cursor: default;
 }

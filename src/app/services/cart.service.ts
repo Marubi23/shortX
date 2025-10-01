@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Short {
   name: string;
@@ -11,6 +12,9 @@ export interface Short {
 export class CartService {
   private cart: Short[] = [];
 
+  private cartItemsSource = new BehaviorSubject<Short[]>([]);
+  cartItems$ = this.cartItemsSource.asObservable();
+
   addToCart(short: Short) {
     const existing = this.cart.find(item => item.name === short.name);
     if (existing) {
@@ -18,22 +22,30 @@ export class CartService {
     } else {
       this.cart.push({ ...short, quantity: 1 });
     }
+    this.cartItemsSource.next([...this.cart]);
   }
 
   removeFromCart(short: Short) {
     this.cart = this.cart.filter(item => item.name !== short.name);
+    this.cartItemsSource.next([...this.cart]);
   }
 
   updateQuantity(short: Short, qty: number) {
     const item = this.cart.find(i => i.name === short.name);
     if (item) item.quantity = qty;
-  }
-
-  getCartItems(): Short[] {
-    return this.cart;
+    this.cartItemsSource.next([...this.cart]);
   }
 
   getCartTotal(): number {
     return this.cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0);
+  }
+
+  getCartCount(): number {
+    return this.cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+  }
+
+  // ✅ check if short is in cart
+  isInCart(short: Short): boolean {
+    return this.cart.some(item => item.name === short.name);
   }
 }

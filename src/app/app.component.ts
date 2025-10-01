@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './services/auth.service';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +11,11 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public authService: AuthService) {}
+  cartCount = 0;
 
-  logout() {
-    this.authService.logout();
+  constructor(private cartService: CartService) {
+    this.cartService.cartItems$.subscribe(items => {
+      this.cartCount = items.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    });
   }
 }
