@@ -1,18 +1,29 @@
-<div class="chat-wrapper">
-  <h2>ShortX Assist 🤖</h2>
-
-  <div class="chat-box" #chatBox>
-    <div *ngFor="let msg of chatMessages" [ngClass]="msg.from">
-      <div class="msg-content">{{ msg.text }}</div>
+<div class="page-wrapper">
+  <div class="chat-wrapper">
+    <!-- Header -->
+    <div class="chat-header">
+      <h2>ShortX Assistant 🤖</h2>
+      <p>Your personal fashion guide</p>
     </div>
-  </div>
 
-  <div class="input-area">
-    <input
-      [(ngModel)]="userInput"
-      (keyup.enter)="sendMessage()"
-      placeholder="Ask me what to wear today..."
-    />
-    <button (click)="sendMessage">Send</button>
+    <!-- Chat Box -->
+    <div class="chat-box" #chatBox>
+      <div *ngFor="let msg of chatMessages" [ngClass]="msg.from">
+        <div class="msg-content">
+          {{ msg.text }}
+          <span *ngIf="msg.typing" class="typing-dots">...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <input
+        [(ngModel)]="userInput"
+        (keyup.enter)="sendMessage()"
+        placeholder="Type your question..."
+      />
+      <button (click)="sendMessage()">➤</button>
+    </div>
   </div>
 </div>
