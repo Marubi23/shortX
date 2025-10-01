@@ -1,0 +1,30 @@
+<div class="container py-5">
+  <h2>ShortX Assist</h2>
+  <div class="chat-box border rounded p-3 mb-3" style="height: 400px; overflow-y: auto;">
+    <div *ngFor="let msg of messages">
+      <!-- User Message -->
+      <div *ngIf="msg.from==='user'" class="text-end mb-2">
+        <span class="badge bg-success">{{msg.text}}</span>
+      </div>
+
+      <!-- Bot Message -->
+      <div *ngIf="msg.from==='bot'" class="text-start mb-2">
+        <span class="badge bg-primary">{{msg.text}}</span>
+        <!-- Show image if recommendation -->
+        <div *ngIf="msg.short" class="mt-2 d-flex align-items-center">
+          <img [src]="msg.short.image" [alt]="msg.short.name" class="cart-thumb-sm me-2">
+          <div>
+            <h6>{{msg.short.name}}</h6>
+            <p>{{msg.short.price | currency:'KES':'symbol':'1.0-0'}}</p>
+            <button class="btn btn-sm btn-primary" (click)="addToCart(msg.short)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <input type="text" class="form-control" [(ngModel)]="userInput" placeholder="Type your message...">
+    <button class="btn btn-primary" (click)="send()">Send</button>
+  </div>
+</div>
