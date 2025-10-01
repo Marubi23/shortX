@@ -1,12 +1,18 @@
-<div class="auth-container">
+<div class="auth-wrapper">
+  <!-- Animated Rhombus shapes -->
+  <div class="rhombus rhombus-1"></div>
+  <div class="rhombus rhombus-2"></div>
+  <div class="rhombus rhombus-3"></div>
+
   <!-- Logo -->
   <div class="logo">ShortX</div>
 
   <!-- Signup Card -->
-  <div class="auth-card">
+  <div class="auth-card glass-card">
     <h2 class="auth-title">Create Account</h2>
-    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
-      <!-- Name -->
+
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm" autocomplete="off">
+      <!-- Full Name -->
       <div class="mb-3">
         <label for="name" class="form-label">Full Name</label>
         <input
@@ -21,7 +27,7 @@
 
       <!-- Email -->
       <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
+        <label for="email" class="form-label">Email</label>
         <input
           type="email"
           id="email"
@@ -58,11 +64,11 @@
         />
       </div>
 
-      <!-- Submit -->
-      <button type="submit" class="auth-btn">Sign Up</button>
+      <!-- Submit Button -->
+      <button type="submit" class="btn-auth">Sign Up</button>
     </form>
 
-    <!-- Link to Login -->
+    <!-- Switch Link -->
     <p class="switch-link">
       Already have an account?
       <a routerLink="/login">Login</a>

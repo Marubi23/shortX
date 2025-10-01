@@ -1,27 +1,45 @@
 <div class="auth-wrapper">
-  <!-- Logo -->
-  <h1 class="logo">ShortsX</h1>
-
-  <!-- Auth Card -->
-  <div class="auth-card">
-    <h2 class="text-center mb-4">Login</h2>
-    <form>
-      <div class="form-group mb-3">
-        <input type="email" class="form-control" placeholder="Email" required>
-      </div>
-      <div class="form-group mb-3">
-        <input type="password" class="form-control" placeholder="Password" required>
-      </div>
-      <button type="submit" class="btn-auth">Login</button>
-    </form>
-    <p class="text-center mt-3">
-      Don’t have an account?
-      <a routerLink="/signup">Sign up</a>
-    </p>
-  </div>
-
-  <!-- Background Rhombus -->
-  <div class="rhombus"></div>
+  <!-- Background Rhombus shapes -->
+  <div class="rhombus rhombus-1"></div>
   <div class="rhombus rhombus-2"></div>
   <div class="rhombus rhombus-3"></div>
+
+  <!-- Logo -->
+  <div class="logo">ShortX</div>
+
+  <!-- Login Card -->
+  <div class="auth-card glass-card">
+    <h2 class="auth-title">Login</h2>
+
+    <form (ngSubmit)="onLogin()" #loginForm="ngForm" autocomplete="off">
+      <!-- Email -->
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Enter your email"
+        required
+      />
+
+      <!-- Password -->
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        required
+      />
+
+      <!-- Submit -->
+      <button type="submit" class="btn-auth">Login</button>
+    </form>
+
+    <!-- Switch Link -->
+    <p class="switch-link">
+      Don’t have an account?
+      <a routerLink="/signup">Sign Up</a>
+    </p>
+  </div>
 </div>
