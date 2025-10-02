@@ -19,9 +19,9 @@ export class ShortxAssistComponent implements AfterViewChecked {
 
   getFashionSuggestion(input: string): string {
     input = input.toLowerCase();
-    if (input.includes('dress')) return 'Try our red and black dresses, perfect for evening events!';
+    if (input.includes('hi')) return 'Hi there how can i help you today ';
     if (input.includes('shirt')) return 'Our casual shirts are trending! Check out the blue and white collection.';
-    if (input.includes('shorts')) return 'We have comfy summer shorts in various colors.';
+    if (input.includes('shorts')) return 'Which type of short do u prefer wearing';
     if (input.includes('jeans')) return 'Skinny or regular fit jeans? We have both in dark and light washes.';
     return 'Check out our latest collection for trendy styles!';
   }
