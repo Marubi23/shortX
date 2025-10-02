@@ -67,7 +67,8 @@
 .trusted-badges {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 20px;
 }
 
@@ -117,16 +118,16 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
   padding: 60px 20px;
 }
 
 .feature-card {
   background-color: #fff;
-  padding: 30px 20px;
+  padding: 25px 15px;
   border-radius: 12px;
   text-align: center;
-  width: 220px;
+  width: 180px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -137,18 +138,18 @@
 }
 
 .feature-card i {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #198754;
-  margin-bottom: 15px;
-}
-
-.feature-card h5 {
-  font-size: 1.2rem;
   margin-bottom: 10px;
 }
 
+.feature-card h5 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
 .feature-card p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #6c757d;
 }
 
@@ -216,4 +217,51 @@
   font-size: 0.9rem;
   color: #6c757d;
   text-align: center;
+}
+
+/* ==========================
+   Mobile Responsive
+========================== */
+@media (max-width: 768px) {
+  .home-top-section {
+    padding: 60px 15px;
+  }
+
+  .home-top-section .headline {
+    font-size: 2.8rem;
+  }
+
+  .home-top-section .subheadline {
+    font-size: 1.8rem;
+  }
+
+  .home-top-section .description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .home-top-section .cta-btn {
+    padding: 12px 25px;
+  }
+
+  .trusted-badges .badge {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  .features-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .feature-card {
+    width: 90%;
+    padding: 20px 15px;
+  }
+
+  .footer-section .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
