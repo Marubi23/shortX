@@ -1,32 +1,39 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+export interface User {
+  name: string;
+  email: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private currentUser: any = null;
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  private userName = new BehaviorSubject<string | null>(null);
 
-  signup(user: { name: string; email: string; password: string }) {
-    this.currentUser = user; // stores in memory
-    console.log('User signed up:', this.currentUser);
-  }
+  isLoggedIn$ = this.loggedIn.asObservable();
+  userName$ = this.userName.asObservable();
 
-  login(email: string, password: string) {
-    if (this.currentUser && this.currentUser.email === email && this.currentUser.password === password) {
+  login(email: string, password: string): boolean {
+    // Replace with real authentication
+    if (email && password) {
+      this.loggedIn.next(true);
+      this.userName.next(email.split('@')[0]); // simple placeholder
       return true;
     }
     return false;
   }
 
-  isLoggedIn() {
-    return this.currentUser !== null;
+  logout(): void {
+    this.loggedIn.next(false);
+    this.userName.next(null);
   }
 
-  logout() {
-    this.currentUser = null;
-  }
-
-  getUser() {
-    return this.currentUser;
+  signup(user: User & { password: string }): void {
+    // Replace with real signup logic
+    this.loggedIn.next(true);
+    this.userName.next(user.name);
   }
 }

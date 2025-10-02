@@ -1,36 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top shortx-navbar">
   <div class="container">
-    <a class="navbar-brand fw-bold fs-3" routerLink="/">ShortsX</a>
+    <a class="navbar-brand fw-bold fs-3 text-primary" routerLink="/">ShortX Marketplace</a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
         <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/shorts" routerLinkActive="active">Shorts</a></li>
-        <li class="nav-item position-relative">
-          <a class="nav-link" routerLink="/cart" routerLinkActive="active">
-            Cart
+        <li class="nav-item"><a class="nav-link" routerLink="/shop" routerLinkActive="active">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/categories" routerLinkActive="active">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/vendors" routerLinkActive="active">Vendors</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/about" routerLinkActive="active">About</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
+
+        <li class="nav-item position-relative ms-3">
+          <a class="nav-link" routerLink="/cart">
+            <i class="bi bi-cart3 fs-5"></i>
             <span *ngIf="cartCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
               {{ cartCount }}
             </span>
           </a>
         </li>
 
-        <li class="nav-item"><a class="nav-link" routerLink="/shortx-assist" routerLinkActive="active">ShortX Assist</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/signup" routerLinkActive="active">Signup</a></li>
+        <ng-container *ngIf="!(isLoggedIn$ | async); else loggedInTemplate">
+          <li class="nav-item ms-3"><a class="btn btn-outline-primary px-3" routerLink="/login">Login</a></li>
+          <li class="nav-item ms-2"><a class="btn btn-primary px-3" routerLink="/signup">Signup</a></li>
+        </ng-container>
+
+        <ng-template #loggedInTemplate>
+          <li class="nav-item dropdown ms-3">
+            <a class="nav-link dropdown-toggle fw-semibold" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle me-1"></i> {{ userName$ | async }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item" routerLink="/profile">My Profile</a></li>
+              <li><a class="dropdown-item" routerLink="/orders">My Orders</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ng-template>
       </ul>
     </div>
   </div>

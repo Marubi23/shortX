@@ -1,0 +1,56 @@
+/* ==========================
+   Navbar Custom Styling
+========================== */
+.shortx-navbar {
+  background-color: #f8f9fa; /* soft, matches landing bg */
+  font-family: 'Poppins', sans-serif;
+}
+
+.shortx-navbar .navbar-brand {
+  color: #198754; /* primary green tone */
+  transition: color 0.3s ease;
+}
+
+.shortx-navbar .navbar-brand:hover {
+  color: #146c43; /* darker green on hover */
+}
+
+.shortx-navbar .nav-link {
+  color: #495057; /* neutral dark text */
+  font-weight: 500;
+  margin: 0 5px;
+  transition: color 0.3s;
+}
+
+.shortx-navbar .nav-link:hover,
+.shortx-navbar .nav-link.active {
+  color: #198754; /* matches brand green */
+}
+
+.shortx-navbar .btn-primary {
+  background-color: #198754; /* green CTA */
+  border: none;
+}
+
+.shortx-navbar .btn-primary:hover {
+  background-color: #146c43; /* darker green hover */
+}
+
+.shortx-navbar .btn-outline-primary {
+  border-color: #198754;
+  color: #198754;
+}
+
+.shortx-navbar .btn-outline-primary:hover {
+  background-color: #198754;
+  color: #fff;
+}
+
+.shortx-navbar .dropdown-menu {
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+}
+
+.shortx-navbar .dropdown-item:hover {
+  background-color: #dff4e1; /* soft light green highlight */
+}

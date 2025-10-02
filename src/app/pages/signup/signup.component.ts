@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms'; // <- import FormsModule
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
-  standalone: true, // mark as standalone
-  imports: [FormsModule], // <- include FormsModule here
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  name: string = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  name = '';
+  email = '';
+  password = '';
+  confirmPassword = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -24,12 +24,7 @@ export class SignupComponent {
       return;
     }
 
-    this.authService.signup({
-      name: this.name,
-      email: this.email,
-      password: this.password
-    });
-
+    this.authService.signup({ name: this.name, email: this.email, password: this.password });
     this.router.navigate(['/']);
   }
 }
