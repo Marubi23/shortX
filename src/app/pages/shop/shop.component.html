@@ -1,0 +1,31 @@
+<div class="vendor-shops-page container">
+  <h1 class="page-title">Vendor Shops</h1>
+
+  <!-- Search + Filter Bar -->
+  <div class="shop-filter-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search shops..."
+      class="search-input"
+    />
+    <select [(ngModel)]="selectedCategory" class="category-select">
+      <option value="all">All Categories</option>
+      <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+    </select>
+  </div>
+
+  <!-- Shops Grid -->
+  <div class="shops-grid">
+    <div *ngFor="let shop of filteredShops" class="shop-card">
+      <div class="shop-image-wrapper">
+        <img [src]="shop.logo" [alt]="shop.name" class="shop-logo" />
+      </div>
+      <div class="shop-details">
+        <h3>{{ shop.name }}</h3>
+        <p class="shop-category">{{ shop.category }}</p>
+        <button routerLink="/shop/{{shop.id}}" class="open-shop-btn">Open Shop</button>
+      </div>
+    </div>
+  </div>
+</div>
