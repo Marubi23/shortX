@@ -20,11 +20,26 @@
     <div *ngFor="let shop of filteredShops" class="shop-card">
       <div class="shop-image-wrapper">
         <img [src]="shop.logo" [alt]="shop.name" class="shop-logo" />
+
+        <!-- Verified Badge -->
+        <div *ngIf="shop.verified" class="verified-badge">✔ Verified</div>
+
+        <!-- Rating Stars -->
+        <div class="rating-badge">
+          <ng-container *ngFor="let star of getStars(shop.rating)">
+            <i *ngIf="star === 'full'" class="bi bi-star-fill"></i>
+            <i *ngIf="star === 'half'" class="bi bi-star-half"></i>
+            <i *ngIf="star === 'empty'" class="bi bi-star"></i>
+          </ng-container>
+        </div>
       </div>
+
       <div class="shop-details">
         <h3>{{ shop.name }}</h3>
         <p class="shop-category">{{ shop.category }}</p>
-        <button routerLink="/shop/{{shop.id}}" class="open-shop-btn">Open Shop</button>
+        <button [routerLink]="['/shop', shop.id]" class="open-shop-btn">
+          View Shop
+        </button>
       </div>
     </div>
   </div>
