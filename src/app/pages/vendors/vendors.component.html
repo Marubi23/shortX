@@ -1,8 +1,30 @@
 <div class="container py-5">
+
   <!-- Hero Section -->
   <section class="text-center mb-5">
     <h1 class="display-4 fw-bold">Discover Campus Vendors</h1>
     <p class="lead text-muted">Top-rated vendors offering the best products and services just for you.</p>
+  </section>
+
+  <!-- Become a Vendor CTA Section -->
+  <section class="vendor-cta text-center my-4 py-4 rounded-3 shadow-sm d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 px-3">
+    <div class="text-start flex-grow-1">
+      <h4 class="fw-bold mb-2">Start Selling Today!</h4>
+      <p class="mb-2 text-muted">
+        Join our platform as a vendor and showcase your products to students. Quick, easy, and free!
+      </p>
+      <div class="d-flex gap-2 flex-wrap">
+        <a routerLink="/register-vendor" class="btn btn-primary btn-sm rounded-pill d-flex align-items-center gap-1">
+          <i class="bi bi-cart-plus-fill"></i> Become a Vendor
+        </a>
+        <a routerLink="/vendor-info" class="btn btn-outline-primary btn-sm rounded-pill d-flex align-items-center gap-1">
+          <i class="bi bi-info-circle-fill"></i> Learn More
+        </a>
+      </div>
+    </div>
+    <div class="text-center">
+      <img src="assets/shops/poster.jpeg" alt="Start Selling" class="img-fluid rounded shadow-sm cta-img">
+    </div>
   </section>
 
   <!-- Search + Categories -->
@@ -24,21 +46,21 @@
   <section class="mb-5">
     <h2 class="mb-3 fw-semibold">Featured Vendors</h2>
     <div class="d-flex overflow-auto gap-3 py-2">
-      <div *ngFor="let vendor of vendors.slice(0,3)" class="card flex-shrink-0" style="width: 18rem;">
-        <img [src]="vendor.image" class="card-img-top" alt="{{vendor.name}}">
+      <div *ngFor="let shop of shops.slice(0,3)" class="card flex-shrink-0 featured-card">
+        <img [src]="shop.logo" class="card-img-top" alt="{{shop.name}}">
         <div class="card-body">
           <h5 class="card-title">
-            {{vendor.name}} 
-            <span *ngIf="vendor.verified" class="badge bg-success">Verified</span>
+            {{shop.name}} 
+            <span *ngIf="shop.verified" class="badge bg-success">Verified</span>
           </h5>
-          <p class="card-text">{{vendor.description}}</p>
+          <p class="card-text">{{shop.category}}</p>
           <div>
-            <ng-container *ngFor="let star of getStars(vendor.rating)">
+            <ng-container *ngFor="let star of getStars(shop.rating)">
               <i *ngIf="star==='full'" class="bi bi-star-fill text-warning"></i>
               <i *ngIf="star==='half'" class="bi bi-star-half text-warning"></i>
               <i *ngIf="star==='empty'" class="bi bi-star text-warning"></i>
             </ng-container>
-            <span class="ms-2">{{vendor.rating.toFixed(1)}}/5</span>
+            <span class="ms-2">{{shop.rating.toFixed(1)}}/5</span>
           </div>
         </div>
       </div>
@@ -49,30 +71,22 @@
   <section>
     <h2 class="mb-4 fw-semibold">All Vendors</h2>
     <div class="row g-4">
-      <div *ngFor="let vendor of filteredVendors" class="col-md-4">
-        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+      <div *ngFor="let shop of filteredVendors" class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden vendor-card">
           <div class="position-relative">
-            <img [src]="vendor.image" class="card-img-top" alt="{{vendor.name}}">
-            <span *ngIf="vendor.verified" class="badge bg-success position-absolute top-0 start-0 m-2">Verified</span>
-            <span class="badge bg-info position-absolute top-0 end-0 m-2">{{vendor.category}}</span>
+            <img [src]="shop.logo" class="card-img-top" alt="{{shop.name}}">
+            <span *ngIf="shop.verified" class="badge bg-success position-absolute top-0 start-0 m-2">Verified</span>
+            <span class="badge bg-info position-absolute top-0 end-0 m-2">{{shop.category}}</span>
           </div>
           <div class="card-body">
-            <h5 class="card-title fw-semibold"><i class="{{vendor.icon}} me-2"></i>{{vendor.name}}</h5>
-            <p class="card-text text-muted">{{vendor.description}}</p>
-            <div>
-              <ng-container *ngFor="let star of getStars(vendor.rating)">
-                <i *ngIf="star==='full'" class="bi bi-star-fill text-warning"></i>
-                <i *ngIf="star==='half'" class="bi bi-star-half text-warning"></i>
-                <i *ngIf="star==='empty'" class="bi bi-star text-warning"></i>
-              </ng-container>
-              <span class="ms-2">{{vendor.rating.toFixed(1)}}/5</span>
-            </div>
+            <h5 class="card-title fw-semibold"><i class="bi bi-shop me-2"></i>{{shop.name}}</h5>
           </div>
           <div class="card-footer bg-white border-0 text-center">
-            <a [routerLink]="['/vendors', vendor.id]" class="btn btn-primary btn-sm rounded-pill">View Vendor</a>
+            <a [routerLink]="['/vendors', shop.id]" class="btn btn-primary btn-sm rounded-pill">View Vendor</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+
 </div>

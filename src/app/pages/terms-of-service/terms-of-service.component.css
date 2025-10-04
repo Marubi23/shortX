@@ -1,0 +1,71 @@
+/* ==========================
+   Terms of Service Page
+========================== */
+.tos-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #212529; /* main text */
+  line-height: 1.7;
+}
+
+.tos-header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.tos-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c5900b; /* brown headline */
+}
+
+.tos-header p {
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+.tos-section {
+  margin-bottom: 25px;
+  padding: 25px 20px;
+  border-left: 4px solid #c5900b; /* accent left border */
+  background: #e6f4ea; /* light green bg for soft contrast */
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tos-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.tos-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #29ac6f; /* green subhead */
+}
+
+.tos-section p,
+.tos-section ul {
+  font-size: 1rem;
+  color: #495057;
+}
+
+.tos-section ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.tos-section li {
+  margin-bottom: 8px;
+}
+
+.tos-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #dee2e6;
+  color: #6c757d;
+  font-size: 0.9rem;
+  text-align: center;
+}

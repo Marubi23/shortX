@@ -1,0 +1,62 @@
+/* ==========================
+   Privacy Policy Page
+========================== */
+.policy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  line-height: 1.7;
+}
+
+.policy-header {
+  margin-bottom: 30px;
+}
+
+.policy-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c5900b; /* Varsity brown */
+}
+
+.policy-header p {
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.policy-section {
+  margin-bottom: 25px;
+  padding: 20px;
+  border-left: 4px solid #c5900b;
+  background: #fffdf5;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.policy-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.policy-section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #29ac6f; /* Varsity green */
+}
+
+.policy-section p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.policy-footer {
+  margin-top: 30px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+  color: #777;
+  font-size: 0.9rem;
+  text-align: center;
+}

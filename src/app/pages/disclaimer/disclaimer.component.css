@@ -1,0 +1,73 @@
+/* ==========================
+   Disclaimer Page (VarsityHub Theme)
+========================== */
+.disclaimer-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.8;
+  color: #333;
+}
+
+.disclaimer-hero {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.disclaimer-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c5900b; /* Varsity Brown */
+}
+
+.disclaimer-hero .subtitle {
+  font-size: 1.2rem;
+  color: #495057;
+}
+
+.section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #fffdf5; /* light beige for contrast */
+  border-left: 4px solid #c5900b; /* Brown accent */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #29ac6f; /* Varsity Green */
+}
+
+.section p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.section a {
+  color: #29ac6f; /* Varsity Green */
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
+
+.disclaimer-footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
