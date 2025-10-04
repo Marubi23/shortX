@@ -1,93 +1,106 @@
 <div class="auth-wrapper horizontal-wizard">
-  <!-- Animated Rhombus shapes -->
-  <div class="rhombus rhombus-1"></div>
-  <div class="rhombus rhombus-2"></div>
-  <div class="rhombus rhombus-3"></div>
-
   <!-- Logo -->
   <div class="logo">KyU VarsityHub</div>
 
-  <!-- Signup Horizontal Wizard -->
-  <div class="auth-card glass-card polished-card wizard-card">
-    <h2 class="auth-title">Join VarsityHub</h2>
-    <p class="auth-subtitle">Safe, fast & simple signup process</p>
+  <!-- Wizard Card -->
+  <div class="wizard-card">
 
-    <!-- Step Indicator -->
-    <div class="step-indicator polished-step horizontal-step">
-      <div [class.active]="step >= 1">1</div>
-      <div [class.active]="step >= 2">2</div>
-      <div [class.active]="step >= 3">3</div>
+    <!-- Step 1: Role Selection -->
+    <div *ngIf="step === 1" class="step-section step-role active">
+      <h2 class="auth-title">I am a...</h2>
+      <div class="polished-role-cards">
+        <div class="role-card" [class.selected]="role==='buyer'" (click)="selectRole('buyer')">
+          <i class="bi bi-person-fill"></i>
+          <span>Buyer</span>
+        </div>
+        <div class="role-card" [class.selected]="role==='seller'" (click)="selectRole('seller')">
+          <i class="bi bi-shop"></i>
+          <span>Seller</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Horizontal Form Container -->
-    <div class="form-horizontal">
-      <form (ngSubmit)="onSignup()" #signupForm="ngForm" autocomplete="off">
+    <!-- Step 2: Role-specific Details -->
+    <div *ngIf="step === 2" class="step-section step-details active">
 
-        <!-- Step 1 -->
-        <div class="step-section horizontal-step-section" [class.active]="step===1">
-          <div class="mb-3 polished-input-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" class="polished-input" name="name" [(ngModel)]="name" required />
-          </div>
-
-          <div class="mb-3 polished-input-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" class="polished-input" name="email" [(ngModel)]="email" required />
-          </div>
-
-          <label>I am a:</label>
-          <div class="role-cards polished-role-cards">
-            <div class="role-card" [class.selected]="role==='buyer'" (click)="role='buyer'">
-              <i class="bi bi-person-fill"></i><span>Buyer</span>
-            </div>
-            <div class="role-card" [class.selected]="role==='seller'" (click)="role='seller'">
-              <i class="bi bi-shop"></i><span>Seller</span>
-            </div>
-          </div>
-
-          <button type="button" class="btn-auth polished-btn" (click)="nextStep()" [disabled]="!role">Proceed</button>
+      <!-- Buyer Form -->
+      <ng-container *ngIf="role==='buyer'">
+        <h2 class="auth-title">Buyer Details</h2>
+        <div class="polished-input-group">
+          <label>Full Name</label>
+          <input type="text" [(ngModel)]="name" class="polished-input" placeholder="John Doe" />
         </div>
+        <div class="polished-input-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="email" class="polished-input" placeholder="example@email.com" />
+        </div>
+        <div class="polished-input-group">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="password" class="polished-input" placeholder="••••••••" />
+        </div>
+      </ng-container>
 
-        <!-- Step 2 -->
-        <div class="step-section horizontal-step-section" 
-             [class.active]="step===2" 
-             [class.role-selected]="role">
-          <div class="mb-3 polished-input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" class="polished-input" name="password" [(ngModel)]="password" required />
+      <!-- Seller Form -->
+      <ng-container *ngIf="role==='seller'">
+        <h2 class="auth-title">Seller Type</h2>
+        <div class="polished-role-cards">
+          <div class="role-card" [class.selected]="sellerType==='online'" (click)="selectSellerType('online')">
+            <i class="bi bi-laptop"></i>
+            <span>Online Seller</span>
           </div>
-
-          <div *ngIf="role==='seller'" class="seller-fields">
-            <div class="mb-3 polished-input-group">
-              <label for="storeName">Store Name</label>
-              <input type="text" id="storeName" class="polished-input" name="storeName" [(ngModel)]="storeName" />
-            </div>
-            <div class="mb-3 polished-input-group">
-              <label for="storePhone">Store Phone</label>
-              <input type="text" id="storePhone" class="polished-input" name="storePhone" [(ngModel)]="storePhone" />
-            </div>
-          </div>
-
-          <div class="btn-row">
-            <button type="button" class="btn-auth alt polished-btn" (click)="prevStep()">Back</button>
-            <button type="button" class="btn-auth polished-btn" (click)="nextStep()">Proceed</button>
+          <div class="role-card" [class.selected]="sellerType==='shop'" (click)="selectSellerType('shop')">
+            <i class="bi bi-shop-window"></i>
+            <span>Shop Owner</span>
           </div>
         </div>
 
-        <!-- Step 3 -->
-        <div class="step-section horizontal-step-section" [class.active]="step===3">
-          <div class="mb-3 polished-input-group">
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" class="polished-input" name="confirmPassword" [(ngModel)]="confirmPassword" required />
+        <div *ngIf="sellerType" class="seller-fields">
+          <div class="polished-input-group">
+            <label>Store Name</label>
+            <input type="text" [(ngModel)]="storeName" class="polished-input" placeholder="My Virtual Shop" />
           </div>
-
-          <div class="btn-row">
-            <button type="button" class="btn-auth alt polished-btn" (click)="prevStep()">Back</button>
-            <button type="submit" class="btn-auth polished-btn">Sign Up</button>
+          <div class="polished-input-group">
+            <label>Store Phone</label>
+            <input type="text" [(ngModel)]="storePhone" class="polished-input" placeholder="+254712345678" />
           </div>
+          <button class="btn-auth alt polished-btn guide-btn" (click)="toggleGuide()">Need Help?</button>
         </div>
+      </ng-container>
 
-      </form>
+      <!-- Navigation Buttons -->
+      <div class="btn-row">
+        <button class="btn-auth alt polished-btn" (click)="prevStep()">Back</button>
+        <button class="btn-auth polished-btn" (click)="nextStep()">Proceed</button>
+      </div>
     </div>
+
+    <!-- Step 3: Confirm Password -->
+    <div *ngIf="step === 3" class="step-section step-confirm active">
+      <h2 class="auth-title">Confirm Your Password</h2>
+      <div class="polished-input-group">
+        <label>Confirm Password</label>
+        <input type="password" [(ngModel)]="confirmPassword" class="polished-input" placeholder="••••••••" />
+      </div>
+      <div class="btn-row">
+        <button class="btn-auth alt polished-btn" (click)="prevStep()">Back</button>
+        <button class="btn-auth polished-btn" (click)="onSignup()">Sign Up</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Guide Modal -->
+<div class="guide-modal" *ngIf="showGuide">
+  <div class="guide-content">
+    <h3>How to register for a Virtual Shop</h3>
+    <ol>
+      <li>Choose "Seller" as your role.</li>
+      <li>Select your seller type: Online Seller or Shop Owner.</li>
+      <li>Fill in your store name and contact phone.</li>
+      <li>Set your password.</li>
+      <li>After signing up, you will receive a unique Shop Number to log in.</li>
+    </ol>
+    <button class="btn-auth alt polished-btn" (click)="toggleGuide()">Close</button>
   </div>
 </div>

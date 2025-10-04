@@ -1,7 +1,11 @@
+/* ==========================
+   About Page Wrapper
+========================== */
 .about-wrapper {
   font-family: 'Poppins', sans-serif;
-  color: #222;
-  line-height: 1.7;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #e6f4ea, #ffffff);
+  color: #212529;
 }
 
 /* ==========================
@@ -9,82 +13,139 @@
 ========================== */
 .about-hero {
   text-align: center;
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #0f5132, #c5900b);
-  color: white;
-  border-radius: 12px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
-
 .about-hero h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 15px;
 }
-
 .about-hero p {
   font-size: 1.2rem;
-  max-width: 750px;
+  color: #444;
+  max-width: 700px;
   margin: 0 auto;
-  opacity: 0.95;
 }
 
 /* ==========================
-   Section Styles
+   Cards Section
 ========================== */
-.about-section {
-  padding: 50px 25px;
-  max-width: 900px;
-  margin: auto;
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
 }
-
-.about-section h2 {
-  color: #c5900b;
+.about-card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+.about-card.highlight {
+  border-left: 5px solid #29ac6f;
+}
+.about-card h2 {
+  font-size: 1.8rem;
   margin-bottom: 15px;
-  font-size: 1.9rem;
-  font-weight: 600;
   display: flex;
   align-items: center;
 }
-
-.about-section.highlight {
-  background: #f0fff4;
-  border-left: 6px solid #c5900b;
-  border-radius: 8px;
-  padding: 50px 30px;
-}
-
-/* ==========================
-   Icon Styling
-========================== */
 .about-icon {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #c5900b;
-  margin-right: 10px;
-  vertical-align: middle;
+  margin-right: 12px;
+}
+.about-card ul {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+.about-card li {
+  margin-bottom: 10px;
 }
 
 /* ==========================
-   Lists
+   Testimonials
 ========================== */
-.about-section ul {
-  list-style: none;
-  padding: 0;
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+.testimonial-card {
+  flex: 1 1 250px;
+  background: rgba(41,172,111,0.15);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  font-style: italic;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+.testimonial-card span {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  font-style: normal;
+  color: #29ac6f;
 }
 
-.about-section ul li {
-  margin: 12px 0;
-  padding-left: 28px;
-  position: relative;
+/* ==========================
+   Packages Section
+========================== */
+.packages-section {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.packages-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.packages-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+.package-card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.18);
+}
+.package-card.highlight {
+  border-top: 5px solid #29ac6f;
+}
+.package-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+.package-card p {
   font-size: 1rem;
+  margin-bottom: 20px;
 }
-
-.about-section ul li::before {
-  content: "✔";
-  color: #c5900b;
-  position: absolute;
-  left: 0;
-  font-weight: bold;
+.package-card .price {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #29ac6f;
 }
 
 /* ==========================
@@ -92,59 +153,60 @@
 ========================== */
 .about-cta {
   text-align: center;
-  padding: 60px 20px;
-  background: #c5900b;
-  color: white;
-  border-radius: 12px;
-  margin-top: 60px;
+  padding: 40px 20px;
+  background: rgba(41,172,111,0.1);
+  border-radius: 20px;
 }
-
 .about-cta h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
-
 .about-cta p {
   font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 25px;
-  opacity: 0.95;
+  margin-bottom: 25px;
 }
-
 .cta-btn {
   padding: 14px 35px;
-  background: white;
-  color: #c5900b;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c5900b, #29ac6f);
+  color: #fff;
   font-weight: 600;
-  font-size: 1rem;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s;
 }
-
 .cta-btn:hover {
-  background: #145c39;
-  color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* ==========================
    Responsive
 ========================== */
-@media (max-width: 768px) {
+@media(max-width: 1024px) {
+  .about-card h2 {
+    font-size: 1.6rem;
+  }
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media(max-width: 768px) {
+  .testimonials {
+    flex-direction: column;
+  }
+  .packages-cards {
+    grid-template-columns: 1fr;
+  }
   .about-hero h1 {
     font-size: 2.2rem;
   }
-  .about-hero p {
-    font-size: 1rem;
+  .about-card {
+    padding: 25px 20px;
   }
-  .about-section h2 {
-    font-size: 1.6rem;
-  }
-  .about-cta h2 {
-    font-size: 1.8rem;
+  .package-card {
+    padding: 20px 15px;
   }
 }

@@ -1,30 +1,40 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // ✅ add this
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms'; // Required for ngModel
 
 @Component({
   selector: 'app-signup',
-  standalone: true, // if using standalone component
-  imports: [CommonModule, FormsModule, RouterLink], // ✅ add FormsModule here
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  step: number = 1;
+  step = 1;           // current step
+  role = '';           // 'buyer' or 'seller'
+  sellerType = '';     // 'online' or 'shop'
 
-  // Step 1
-  name: string = '';
-  email: string = '';
-  role: string = '';
+  // Buyer fields
+  name = '';
+  email = '';
+  password = '';
+  confirmPassword = '';
 
-  // Step 2
-  password: string = '';
-  storeName: string = '';
-  storePhone: string = '';
+  // Seller fields
+  storeName = '';
+  storePhone = '';
 
-  // Step 3
-  confirmPassword: string = '';
+  // Guide modal
+  showGuide = false;
+
+  selectRole(role: string) {
+    this.role = role;
+    this.nextStep();
+  }
+
+  selectSellerType(type: string) {
+    this.sellerType = type;
+  }
 
   nextStep() {
     if (this.step < 3) this.step++;
@@ -34,14 +44,25 @@ export class SignupComponent {
     if (this.step > 1) this.step--;
   }
 
+  toggleGuide() {
+    this.showGuide = !this.showGuide;
+  }
+
   onSignup() {
-    const userData = {
+    if (this.password !== this.confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+    // Replace with API call
+    console.log({
+      role: this.role,
+      sellerType: this.sellerType,
       name: this.name,
       email: this.email,
-      role: this.role,
       password: this.password,
-      ...(this.role === 'seller' && { storeName: this.storeName, storePhone: this.storePhone })
-    };
-    console.log('Signup Data:', userData);
+      storeName: this.storeName,
+      storePhone: this.storePhone
+    });
+    alert('Signup successful!');
   }
 }
