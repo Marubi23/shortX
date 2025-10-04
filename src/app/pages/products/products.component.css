@@ -1,8 +1,8 @@
 .products-wrapper {
   padding: 40px 20px;
   font-family: 'Poppins', sans-serif;
-  color: #2c2c2c; /* dark gray */
-  background: #f3f4f6; /* soft neutral gray */
+  color: #212529; /* dark charcoal */
+  background: #e6f4ea; /* soft light green background */
 }
 
 /* Hero */
@@ -15,11 +15,11 @@
   font-size: 2.2rem;
   margin-bottom: 10px;
   font-weight: bold;
-  color: #ff7f50; /* muted coral */
+  color: #c5900b; /* gold accent */
 }
 
 .page-subtitle {
-  color: #555;
+  color: #495057; /* dark gray for readability */
   font-size: 1rem;
 }
 
@@ -35,7 +35,7 @@
   justify-content: center;
   gap: 8px;
   font-weight: 600;
-  color: #ff7f50;
+  color: #c5900b; /* gold */
   margin-bottom: 15px;
 }
 
@@ -59,19 +59,19 @@
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
-  background: #ff7f50; /* coral button */
+  background: #c5900b; /* gold button */
   color: #fff;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
 
 .budget-filter button:hover {
-  background: #ff6535; /* darker coral hover */
+  background: #29ac6f; /* green hover accent */
 }
 
 .budget-note {
   font-size: 0.85rem;
-  color: #777;
+  color: #6c757d;
   margin-top: 6px;
 }
 
@@ -87,7 +87,7 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
-  color: #ff7f50;
+  color: #c5900b; /* gold */
 }
 
 .product-gallery {
@@ -98,22 +98,22 @@
 
 /* Product Card */
 .product-card {
-  background: #ffffff; /* clean off-white */
+  background: #fff; /* white for clarity */
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06); /* soft shadow */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s, box-shadow 0.3s;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
 .image-wrapper {
   height: 180px;
   overflow: hidden;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #d9e6d3;
 }
 
 .product-image {
@@ -134,12 +134,12 @@
 
 .price {
   font-weight: bold;
-  color: #20c997; /* soft teal for price */
+  color: #29ac6f; /* teal green accent for price */
   margin-bottom: 12px;
 }
 
 .btn-auth {
-  background: linear-gradient(135deg, #ff7f50, #ff6535); /* subtle coral gradient */
+  background: linear-gradient(135deg, #c5900b, #29ac6f); /* gold to green gradient */
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
@@ -162,10 +162,10 @@
 
 /* Placeholder */
 .announcement-placeholder {
-  background: #f9f9f9; /* soft gray */
+  background: #f0f9f4; /* soft green cream */
   padding: 30px;
   border-radius: 12px;
   text-align: center;
-  color: #777;
+  color: #6c757d;
   font-style: italic;
 }
