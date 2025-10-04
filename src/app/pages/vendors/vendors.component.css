@@ -1,35 +1,35 @@
 /* Become a Vendor CTA Section - Compact Version */
 .vendor-cta {
-  background: linear-gradient(135deg, #6f42c1, #6610f2);
-  color: white;
+  background: linear-gradient(135deg, #c5900b, #29ac6f); /* gold-to-teal gradient */
+  color: #212529; /* dark text for readability */
   position: relative;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 1.5rem 1rem; /* smaller vertical padding */
-  border-radius: 1rem;  /* slightly smaller rounding */
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
 }
 
 .vendor-cta:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .vendor-cta .btn-primary {
-  background: #ffc107;
-  color: #212529;
+  background: #29ac6f; /* teal button */
+  color: #fff;
   font-weight: 600;
-  font-size: 0.9rem; /* smaller button */
+  font-size: 0.9rem;
   padding: 0.4rem 1rem;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .vendor-cta .btn-primary:hover {
-  background: #ffca2c;
+  background: #1e8a5a; /* darker teal hover */
   transform: scale(1.05);
 }
 
 .vendor-cta .btn-outline-primary {
-  color: #ffc107;
+  color: #ffc107; /* gold outline */
   border-color: #ffc107;
   font-size: 0.9rem;
   padding: 0.4rem 1rem;
@@ -38,13 +38,13 @@
 
 .vendor-cta .btn-outline-primary:hover {
   color: #212529;
-  background: #ffc107;
+  background: #ffc107; /* gold fill on hover */
   transform: scale(1.05);
 }
 
 .vendor-cta .cta-img {
-  margin-top: 10px;     /* smaller spacing */
-  max-width: 120px;     /* small highlight image */
+  margin-top: 10px;
+  max-width: 120px;
   width: 100%;
   height: auto;
   border-radius: 12px;
@@ -52,10 +52,10 @@
 }
 
 .vendor-cta .cta-img:hover {
-  transform: scale(1.03); /* subtle zoom on hover */
+  transform: scale(1.03);
 }
 
-/* Optional: layout flex for medium+ screens */
+/* Layout for medium+ screens */
 @media(min-width: 768px) {
   .vendor-cta {
     display: flex;
@@ -68,25 +68,29 @@
   }
 }
 
-
 /* Featured Vendors Carousel Cards */
 .featured-card {
   min-width: 18rem;
   border-radius: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff; /* clean white card */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .featured-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.12);
 }
 
 /* Vendors Grid Cards */
 .vendor-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff; /* consistent clean look */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
 
 .vendor-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
 }
