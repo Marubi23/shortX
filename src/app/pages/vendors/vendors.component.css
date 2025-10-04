@@ -1,7 +1,9 @@
-/* Become a Vendor CTA Section - Compact Version */
+/* ==========================
+   Vendor CTA Section
+========================== */
 .vendor-cta {
   background: linear-gradient(135deg, #c5900b, #29ac6f); /* gold-to-teal gradient */
-  color: #212529; /* dark text for readability */
+  color: #212529;
   position: relative;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -14,34 +16,45 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Buttons in CTA */
 .vendor-cta .btn-primary {
-  background: #29ac6f; /* teal button */
+  background: linear-gradient(135deg, #29ac6f, #20c997); /* teal gradient */
   color: #fff;
   font-weight: 600;
   font-size: 0.9rem;
-  padding: 0.4rem 1rem;
-  transition: background 0.2s ease, transform 0.2s ease;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .vendor-cta .btn-primary:hover {
-  background: #1e8a5a; /* darker teal hover */
+  background: linear-gradient(135deg, #1e8a5a, #17a589); /* darker teal hover */
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .vendor-cta .btn-outline-primary {
-  color: #ffc107; /* gold outline */
+  color: #ffc107; /* gold */
   border-color: #ffc107;
   font-size: 0.9rem;
-  padding: 0.4rem 1rem;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .vendor-cta .btn-outline-primary:hover {
   color: #212529;
-  background: #ffc107; /* gold fill on hover */
+  background: #ffc107; /* solid gold hover */
   transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* CTA Image */
 .vendor-cta .cta-img {
   margin-top: 10px;
   max-width: 120px;
@@ -55,7 +68,7 @@
   transform: scale(1.03);
 }
 
-/* Layout for medium+ screens */
+/* Flex layout for medium+ screens */
 @media(min-width: 768px) {
   .vendor-cta {
     display: flex;
@@ -68,13 +81,15 @@
   }
 }
 
-/* Featured Vendors Carousel Cards */
+/* ==========================
+   Featured Vendors Carousel Cards
+========================== */
 .featured-card {
   min-width: 18rem;
   border-radius: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #fff; /* clean white card */
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .featured-card:hover {
@@ -82,15 +97,146 @@
   box-shadow: 0 12px 22px rgba(0,0,0,0.12);
 }
 
-/* Vendors Grid Cards */
+/* ==========================
+   Vendors Grid Cards
+========================== */
 .vendor-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: #fff; /* consistent clean look */
+  background: #fff; /* consistent white card */
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vendor-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+
+/* ==========================
+   Vendor Shops Page
+========================== */
+.vendor-shops-page {
+  padding: 15px;
+  font-family: 'Poppins', sans-serif;
+  color: #2c2c2c;
+  background: #f3f4f6; /* soft neutral background */
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ff7f50; /* coral heading */
+}
+
+.shop-filter-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.search-input,
+.category-select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.shops-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.shop-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+
+.shop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.shop-image-wrapper {
+  position: relative;
+}
+
+.shop-logo {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.verified-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #29ac6f; /* teal */
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.rating-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 2px;
+  background: rgba(0,0,0,0.6);
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: gold;
+  font-size: 12px;
+}
+
+.shop-details {
+  padding: 10px;
+  text-align: center;
+}
+
+.shop-details h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #212529;
+}
+
+.shop-category {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.open-shop-btn {
+  background: #29ac6f; /* teal button */
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.open-shop-btn:hover {
+  background: #20c997; /* darker teal hover */
+  transform: translateY(-1px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .shop-filter-bar { flex-direction: column; gap: 10px; }
+  .shops-grid { grid-template-columns: 1fr; }
+  .shop-logo { height: 140px; }
+  .shop-details h3 { font-size: 18px; }
 }
