@@ -1,47 +1,47 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // ✅ add this
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
+  standalone: true, // if using standalone component
+  imports: [CommonModule, FormsModule, RouterLink], // ✅ add FormsModule here
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  step = 1;
-  name = '';
-  email = '';
-  password = '';
-  confirmPassword = '';
+  step: number = 1;
+
+  // Step 1
+  name: string = '';
+  email: string = '';
+  role: string = '';
+
+  // Step 2
+  password: string = '';
+  storeName: string = '';
+  storePhone: string = '';
+
+  // Step 3
+  confirmPassword: string = '';
 
   nextStep() {
-    if (this.step === 1 && this.name && this.email) {
-      this.step = 2;
-    } else if (this.step === 2 && this.password) {
-      this.step = 3;
-    }
+    if (this.step < 3) this.step++;
   }
 
   prevStep() {
-    if (this.step > 1) {
-      this.step--;
-    }
+    if (this.step > 1) this.step--;
   }
 
   onSignup() {
-    if (this.password !== this.confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
-
-    console.log('Signup data:', {
+    const userData = {
       name: this.name,
       email: this.email,
-      password: this.password
-    });
-
-    // TODO: Call AuthService signup API here
+      role: this.role,
+      password: this.password,
+      ...(this.role === 'seller' && { storeName: this.storeName, storePhone: this.storePhone })
+    };
+    console.log('Signup Data:', userData);
   }
 }
