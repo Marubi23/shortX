@@ -17,13 +17,13 @@
 
 .home-top-section .social-icons a {
   margin-left: 10px;
-  color: #198754;
+  color: #c5900b;
   font-size: 1.5rem;
   transition: color 0.3s;
 }
 
 .home-top-section .social-icons a:hover {
-  color: #146c43;
+  color: #29ac6f;
 }
 
 .home-top-section .headline {
@@ -36,7 +36,7 @@
 .home-top-section .subheadline {
   font-size: 2.2rem;
   font-weight: 500;
-  color: #198754;
+  color: #c5900b;
   margin-bottom: 25px;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .cta-btn {
-  background-color: #198754;
+  background-color: #c5900b;
   color: #fff;
   padding: 14px 35px;
   border-radius: 8px;
@@ -67,19 +67,19 @@
 }
 
 .cta-btn:hover {
-  background-color: #146c43;
+  background-color: #29ac6f;
 }
 
 /* Secondary button for Start Selling */
 .secondary-btn {
   background-color: #fff;
-  color: #198754;
-  border: 2px solid #198754;
+  color: #c5900b;
+  border: 2px solid #c5900b;
   transition: all 0.3s;
 }
 
 .secondary-btn:hover {
-  background-color: #198754;
+  background-color: #c5900b;
   color: #fff;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .trusted-badges .badge i {
-  color: #198754;
+  color: #c5900b;
   font-size: 1.2rem;
 }
 
@@ -161,7 +161,7 @@
 
 .feature-card i {
   font-size: 2rem;
-  color: #198754;
+  color: #c5900b;
   margin-bottom: 15px;
 }
 
@@ -207,7 +207,7 @@
 
 .category-card i {
   font-size: 32px;
-  color: #198754;
+  color: #c5900b;
   margin-bottom: 12px;
 }
 
@@ -262,24 +262,24 @@
 }
 
 .footer-links ul li a {
-  color: #198754;
+  color: #c5900b;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footer-links ul li a:hover {
-  color: #146c43;
+  color: #29ac6f;
 }
 
 .footer-contact .footer-social a {
   margin-right: 10px;
-  color: #198754;
+  color: #c5900b;
   font-size: 1.2rem;
   transition: color 0.3s;
 }
 
 .footer-contact .footer-social a:hover {
-  color: #146c43;
+  color: #29ac6f;
 }
 
 .footer-bottom {

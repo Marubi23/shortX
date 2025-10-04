@@ -7,12 +7,12 @@
 }
 
 .shortx-navbar .navbar-brand {
-  color: #198754; /* primary green tone */
+  color: #c5900b; /* primary green tone */
   transition: color 0.3s ease;
 }
 
 .shortx-navbar .navbar-brand:hover {
-  color: #146c43; /* darker green on hover */
+  color: #29ac6f; /* darker green on hover */
 }
 
 .shortx-navbar .nav-link {
@@ -24,25 +24,25 @@
 
 .shortx-navbar .nav-link:hover,
 .shortx-navbar .nav-link.active {
-  color: #198754; /* matches brand green */
+  color: #c5900b; /* matches brand green */
 }
 
 .shortx-navbar .btn-primary {
-  background-color: #198754; /* green CTA */
+  background-color: #c5900b; /* green CTA */
   border: none;
 }
 
 .shortx-navbar .btn-primary:hover {
-  background-color: #146c43; /* darker green hover */
+  background-color: #29ac6f; /* darker green hover */
 }
 
 .shortx-navbar .btn-outline-primary {
-  border-color: #198754;
-  color: #198754;
+  border-color: #c5900b;
+  color: #c5900b;
 }
 
 .shortx-navbar .btn-outline-primary:hover {
-  background-color: #198754;
+  background-color: #c5900b;
   color: #fff;
 }
 
@@ -53,4 +53,23 @@
 
 .shortx-navbar .dropdown-item:hover {
   background-color: #dff4e1; /* soft light green highlight */
+}
+/* ==========================
+   Navbar Centering Updates
+========================== */
+
+/* Center nav links */
+.shortx-navbar .navbar-collapse {
+  display: flex;
+  justify-content: center; /* centers links horizontally */
+}
+
+.shortx-navbar .navbar-nav {
+  margin: 0 auto; /* ensures nav takes center space */
+}
+
+/* Optional: keep right-side items (cart/login) aligned neatly */
+.shortx-navbar .navbar-nav .ms-3,
+.shortx-navbar .navbar-nav .ms-2 {
+  margin-left: 1rem !important;
 }

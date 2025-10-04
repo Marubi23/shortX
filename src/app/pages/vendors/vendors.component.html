@@ -1,0 +1,78 @@
+<div class="container py-5">
+  <!-- Hero Section -->
+  <section class="text-center mb-5">
+    <h1 class="display-4 fw-bold">Discover Campus Vendors</h1>
+    <p class="lead text-muted">Top-rated vendors offering the best products and services just for you.</p>
+  </section>
+
+  <!-- Search + Categories -->
+  <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <input type="text" class="form-control me-2 mb-2" placeholder="Search vendors..." [(ngModel)]="searchQuery">
+    <div class="btn-group mb-2">
+      <button 
+        *ngFor="let cat of categories"
+        class="btn" 
+        [ngClass]="{'btn-primary': selectedCategory===cat.name, 'btn-outline-primary': selectedCategory!==cat.name}"
+        (click)="selectCategory(cat.name)">
+        <i class="{{cat.icon}} me-1"></i> {{cat.name}}
+      </button>
+      <button class="btn btn-outline-secondary" (click)="selectCategory('all')">All</button>
+    </div>
+  </div>
+
+  <!-- Featured Vendors Carousel -->
+  <section class="mb-5">
+    <h2 class="mb-3 fw-semibold">Featured Vendors</h2>
+    <div class="d-flex overflow-auto gap-3 py-2">
+      <div *ngFor="let vendor of vendors.slice(0,3)" class="card flex-shrink-0" style="width: 18rem;">
+        <img [src]="vendor.image" class="card-img-top" alt="{{vendor.name}}">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{vendor.name}} 
+            <span *ngIf="vendor.verified" class="badge bg-success">Verified</span>
+          </h5>
+          <p class="card-text">{{vendor.description}}</p>
+          <div>
+            <ng-container *ngFor="let star of getStars(vendor.rating)">
+              <i *ngIf="star==='full'" class="bi bi-star-fill text-warning"></i>
+              <i *ngIf="star==='half'" class="bi bi-star-half text-warning"></i>
+              <i *ngIf="star==='empty'" class="bi bi-star text-warning"></i>
+            </ng-container>
+            <span class="ms-2">{{vendor.rating.toFixed(1)}}/5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vendors Grid -->
+  <section>
+    <h2 class="mb-4 fw-semibold">All Vendors</h2>
+    <div class="row g-4">
+      <div *ngFor="let vendor of filteredVendors" class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+          <div class="position-relative">
+            <img [src]="vendor.image" class="card-img-top" alt="{{vendor.name}}">
+            <span *ngIf="vendor.verified" class="badge bg-success position-absolute top-0 start-0 m-2">Verified</span>
+            <span class="badge bg-info position-absolute top-0 end-0 m-2">{{vendor.category}}</span>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-semibold"><i class="{{vendor.icon}} me-2"></i>{{vendor.name}}</h5>
+            <p class="card-text text-muted">{{vendor.description}}</p>
+            <div>
+              <ng-container *ngFor="let star of getStars(vendor.rating)">
+                <i *ngIf="star==='full'" class="bi bi-star-fill text-warning"></i>
+                <i *ngIf="star==='half'" class="bi bi-star-half text-warning"></i>
+                <i *ngIf="star==='empty'" class="bi bi-star text-warning"></i>
+              </ng-container>
+              <span class="ms-2">{{vendor.rating.toFixed(1)}}/5</span>
+            </div>
+          </div>
+          <div class="card-footer bg-white border-0 text-center">
+            <a [routerLink]="['/vendors', vendor.id]" class="btn btn-primary btn-sm rounded-pill">View Vendor</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
