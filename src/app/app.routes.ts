@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { ShortsComponent } from './pages/shorts/shorts.component';
+import { ProductsComponent } from './pages/products/products.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -14,7 +14,7 @@ import { TermsOfServiceComponent } from './pages/terms-of-service/terms-of-servi
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'categories', component: ShortsComponent },
+  { path: 'products', component: ProductsComponent },
   { path: 'cart', component: CartComponent },
   { 
     path: 'shortx-assist', 

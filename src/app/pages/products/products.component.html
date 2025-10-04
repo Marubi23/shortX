@@ -1,0 +1,70 @@
+<div class="products-wrapper">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1 class="page-title">
+      <i class="fas fa-store"></i> Marketplace Hub
+    </h1>
+    <p class="page-subtitle">
+      Discover the latest arrivals, discounts & exclusive shop updates
+    </p>
+  </section>
+
+  <!-- Budget Filter Section -->
+  <section class="budget-section">
+    <h2><i class="fas fa-wallet"></i> Shop by Budget</h2>
+    <div class="budget-filter">
+      <input 
+        type="number" 
+        [(ngModel)]="budget" 
+        placeholder="Enter your budget (Ksh)"
+      />
+      <button (click)="filterByBudget()">
+        <i class="fas fa-search"></i> Find Items
+      </button>
+    </div>
+    <p class="budget-note">If no items match, we’ll show the cheapest available product.</p>
+  </section>
+
+  <!-- Recently Added Shorts -->
+  <section class="product-section">
+    <h2>
+      <i class="fas fa-fire"></i> Recently Added Shorts
+    </h2>
+    <div class="product-gallery">
+      <div *ngFor="let short of filteredProducts" class="product-card glass-card">
+        <div class="image-wrapper">
+          <img [src]="short.image" [alt]="short.name" class="product-image" />
+        </div>
+        <div class="product-info">
+          <h5>{{ short.name }}</h5>
+          <p class="price">Ksh. {{ short.price }}</p>
+          <button
+            [ngClass]="isAdded(short) ? 'btn btn-warning added-btn' : 'btn-auth'"
+            [disabled]="isAdded(short)"
+            (click)="addToCart(short)">
+            <i [class]="isAdded(short) ? 'fas fa-check' : 'fas fa-cart-plus'"></i>
+            {{ isAdded(short) ? 'Added' : 'Add to Cart' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discount Section -->
+  <section class="product-section">
+    <h2><i class="fas fa-tags"></i> On Discount</h2>
+    <div class="announcement-placeholder">
+      <p>No discounted items yet. Stay tuned!</p>
+    </div>
+  </section>
+
+  <!-- Shop Announcements -->
+  <section class="product-section">
+    <h2><i class="fas fa-bullhorn"></i> Shop Announcements</h2>
+    <div class="announcement-placeholder">
+      <p>No announcements yet. Check back later!</p>
+    </div>
+  </section>
+
+</div>

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // ✅ Import FormsModule
 import { CartService, Short } from '../../services/cart.service';
 
 @Component({
-  selector: 'app-shorts',
+  selector: 'app-products',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './shorts.component.html',
-  styleUrls: ['./shorts.component.css']
+  imports: [CommonModule, FormsModule], // ✅ Add FormsModule here
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class ShortsComponent implements OnInit {
+export class ProductsComponent implements OnInit {
   shorts: Short[] = [
     { name: 'Short1', price: 200, image: 'assets/shorts/short1.jpeg' },
     { name: 'Short2', price: 200, image: 'assets/shorts/short2.jpeg' },
@@ -22,11 +23,12 @@ export class ShortsComponent implements OnInit {
   ];
 
   cartItems: Short[] = [];
+  budget: number = 0;
+  filteredProducts: Short[] = [...this.shorts];
 
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    // Subscribe to cart changes to track added items
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
     });
@@ -38,5 +40,17 @@ export class ShortsComponent implements OnInit {
 
   isAdded(short: Short): boolean {
     return this.cartItems.some(item => item.name === short.name);
+  }
+
+  filterByBudget() {
+    if (this.budget > 0) {
+      this.filteredProducts = this.shorts.filter(p => p.price <= this.budget);
+      if (this.filteredProducts.length === 0) {
+        const cheapest = this.shorts.reduce((min, p) => p.price < min.price ? p : min, this.shorts[0]);
+        this.filteredProducts = [cheapest];
+      }
+    } else {
+      this.filteredProducts = [...this.shorts];
+    }
   }
 }
