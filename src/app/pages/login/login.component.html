@@ -5,35 +5,33 @@
   <div class="rhombus rhombus-3"></div>
 
   <!-- Logo -->
-  <div class="logo">ShortX Marketplace</div>
+  <div class="logo neon">KyU VarsityHub</div>
 
-  <!-- Login Card -->
-  <div class="auth-card glass-card">
-    <h2 class="auth-title">Login</h2>
+  <!-- Futuristic Glass Login Card -->
+  <div class="auth-card holo-card">
+    <h2 class="auth-title">Access Portal</h2>
+    <p class="auth-subtitle">Login to continue</p>
 
     <form (ngSubmit)="onLogin()" #loginForm="ngForm" autocomplete="off">
-      <!-- Email -->
-      <input
-        type="email"
-        class="form-control"
-        name="email"
-        [(ngModel)]="email"
-        placeholder="Enter your email"
-        required
+      <input 
+        type="email" 
+        class="form-control neon-input" 
+        name="email" 
+        [(ngModel)]="email" 
+        placeholder="Email" 
+        required 
       />
 
-      <!-- Password -->
-      <input
-        type="password"
-        class="form-control"
-        name="password"
-        [(ngModel)]="password"
-        placeholder="Enter your password"
-        required
+      <input 
+        type="password" 
+        class="form-control neon-input" 
+        name="password" 
+        [(ngModel)]="password" 
+        placeholder="Password" 
+        required 
       />
 
-      <!-- Submit -->
-      <button type="submit" class="btn-auth">Login</button>
+      <button type="submit" class="btn-auth neon-btn">Login</button>
     </form>
 
     <!-- Switch Link -->

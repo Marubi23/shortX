@@ -1,22 +1,34 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  step = 1;
   name = '';
   email = '';
   password = '';
   confirmPassword = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  nextStep() {
+    if (this.step === 1 && this.name && this.email) {
+      this.step = 2;
+    } else if (this.step === 2 && this.password) {
+      this.step = 3;
+    }
+  }
+
+  prevStep() {
+    if (this.step > 1) {
+      this.step--;
+    }
+  }
 
   onSignup() {
     if (this.password !== this.confirmPassword) {
@@ -24,7 +36,12 @@ export class SignupComponent {
       return;
     }
 
-    this.authService.signup({ name: this.name, email: this.email, password: this.password });
-    this.router.navigate(['/']);
+    console.log('Signup data:', {
+      name: this.name,
+      email: this.email,
+      password: this.password
+    });
+
+    // TODO: Call AuthService signup API here
   }
 }
